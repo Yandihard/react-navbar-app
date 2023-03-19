@@ -1,38 +1,142 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  height: 100vh;
+  padding: 1em;
+  background-color: #000;
+  background-image: url(https://images.unsplash.com/photo-1551309292-e185c0b6e22a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80);
+  background-size: cover;
+  background-position: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+li {
+  list-style: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1rem;
+}
+
+a:hover {
+  color: orange;
+}
+
+/* Header */
+header {
+  position: relative;
+  padding: 0 2rem;
+}
+
+.navbar {
+  width: 100%;
+  height: 4em;
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar .logo a {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.navbar .links {
+  display: flex;
+  gap: 2em;
+}
+
+.navbar .toggle-btn {
+  color: #fff;
+  font-size: 1.5em;
+  cursor: pointer;
+  display: none;
+}
+
+.action-btn {
+  background-color: orange;
+  color: #fff;
+  padding: 0.5em 1em;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  font-size: 0.8em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: scale 0.2 ease;
+}
+
+.action-btn:hover {
+  scale: 1.05;
+  color: #fff;
+}
+
+.action-btn:active {
+  scale: 0.95;
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+  display: none;
+  position: absolute;
+  right: 2em;
+  top: 4em;
+  width: 20em;
+  height: 0;
+  background: rgb(255, 255, 255, 0.1);
+  backdrop-filter: blur(1em);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.hamburger-menu.open {
+  height: 15em;
+}
+
+.hamburger-menu li {
+  padding: 0.7em;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.hamburger-menu .action-btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Responsive Mode */
+@media (max-width: 992px) {
+  .navbar .links, .navbar .action-btn {
+      display: none;        
   }
-  to {
-    transform: rotate(360deg);
+
+  .navbar .toggle-btn {
+      display: block;
+  }
+
+  .navbar .toggle-btn:hover {
+      color: orange;
+  }
+
+  .hamburger-menu {
+      display: block;
+  }
+}
+
+@media (max-width: 576px) {
+  .hamburger-menu {
+      left: 2em;
+      width: unset;
   }
 }
